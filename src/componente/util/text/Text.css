@@ -10,5 +10,14 @@ input[readonly]{
     background-color:transparent;
     border: 0;
     font-size: 1em;
-  }
+}
+
+input:focus, select:focus, select, input.form-control:focus {
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+
+}
 

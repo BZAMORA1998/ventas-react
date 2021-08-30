@@ -16,17 +16,17 @@ const Login=()=>{
                             <form>
                                 <div className="form-group">
                                     <Text 
-                                    icon="'fas fa-user-lock'" 
+                                    icon="fas fa-user-lock" 
                                     label="Usuario"
-                                    id="'user'"
+                                    id="user"
                                     />                      
                                 </div>
                             
                                 <div className="form-group mt-5">
                                     <Text 
-                                    icon="'fas fa-key'" 
+                                    icon="fas fa-key" 
                                     label="Contraseña"
-                                    id="'pass'"
+                                    id="pass"
                                     typeInput="password"
                                     /> 
                                      <label type="button" className="button"><i className="eye fa fa-eye showPass" aria-hidden="true"></i></label>
