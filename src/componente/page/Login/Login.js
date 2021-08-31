@@ -1,8 +1,20 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import './Login.css';
 import Text from "../../util/text/Text";
 
-const Login=()=>{
+const Login=()=>{ 
+    
+    const [usuario, setUsuario] = useState('');
+    const [contrasena, setContrasena] = useState('');
+
+    const handleUsuarioChange = (text)=>{
+        setUsuario(text);
+     };
+
+     const handleContrasenaChange = (text)=>{
+        setContrasena(text);
+     };
+
     return (
         <Fragment>  
             <div className="container-fluid login-container d-flex flex-wrap justify-content-center align-content-center">
@@ -19,21 +31,25 @@ const Login=()=>{
                                     icon="fas fa-user-lock" 
                                     label="Usuario"
                                     id="user"
+                                    text={usuario}
+                                    setText={handleUsuarioChange}
                                     />                      
                                 </div>
-                            
+
                                 <div className="form-group mt-5">
                                     <Text 
                                     icon="fas fa-key" 
                                     label="Contraseña"
                                     id="pass"
                                     typeInput="password"
+                                    text={contrasena}
+                                    setText={handleContrasenaChange}
                                     /> 
                                      <label type="button" className="button"><i className="eye fa fa-eye showPass" aria-hidden="true"></i></label>
              
-                            </div>
+                                </div>
                             </form>
-                            <button  id="btn-ok" type="button" class="btn btn-primary w-100" disabled="true">Inicie Sesión</button>
+                            <button id="btn-ok" type="button" class="btn btn-primary w-100" >Inicie Sesión</button>
                             <a className="mt-4 d-flex justify-content-end">Recuperar Contraseña</a>
                         </div>
                     </div>
