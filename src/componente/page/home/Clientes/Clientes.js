@@ -1,11 +1,12 @@
 import { Fragment } from "react";
 import { Button,Form } from 'react-bootstrap';
+import './Clientes.css';
 
 const Clientes=()=>{ 
 
     return (
         <Fragment> 
-            <div className="container-fluid h-100 d-flex justify-content-center align-items-center">
+            <div className="container-fluid d-flex justify-content-center align-items-center">
                 <div className="card w-50">
                     <div className="card-body">
                         <Form>
