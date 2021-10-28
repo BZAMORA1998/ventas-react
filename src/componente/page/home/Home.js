@@ -7,53 +7,38 @@ import {
 } from "react-router-dom";
 import Citas from "./Citas/Citas";
 import Clientes from "./Clientes/Clientes";
+import {Navbar,Container,Nav} from 'react-bootstrap'
+import './Home.css';
 
 export default function App() {
 
   let match = useRouteMatch();
 
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to={`${match.path}`}>Home</Link>
-            </li>
-            <li>
-              <Link to={`${match.path}/citas`}>About</Link>
-            </li>
-            <li>
-              <Link to={`${match.path}/clientes`}>Users</Link>
-            </li>
-          </ul>
-        </nav>
+    return (
+      <Router>
 
-        <Switch>
-          <Router exact path={`${match.path}/citas`}>
-            <Citas />
-          </Router>
-          <Router exact path={`${match.path}/clientes`}>
-            <Clientes/>
-          </Router>
-          <Router exact path={`${match.path}`}>
-            <Citas />
-          </Router>
-      </Switch>
+          <Navbar bg="dark" variant="dark">
+              <Container>
+              <Link  className="text-white m-2" to={`${match.path}`}>Pets&Cats</Link>
+              <Nav className="me-auto">
+                <Link  className="text-white m-2" activeClassName="selected" to={`${match.path}`}>Home</Link>
+                <Link className="text-white m-2" activeClassName="selected" to={`${match.path}/citas`}>Citas</Link>
+                <Link className="text-white m-2" activeClassName="selected" to={`${match.path}/clientes`}>Clientes</Link>
+              </Nav>
+              </Container>
+          </Navbar>
+          <Switch>
+              <Router exact path={`${match.path}/citas`}>
+                <Citas />
+              </Router>
+              <Router exact path={`${match.path}/clientes`}>
+                <Clientes/>
+              </Router>
+              <Router exact path={`${match.path}`}>
+                <Citas />
+              </Router>
+           </Switch>
 
-      </div>
-    </Router>
-  );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
+      </Router>
+    );
 }
