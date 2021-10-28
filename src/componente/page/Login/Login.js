@@ -1,11 +1,13 @@
 import { Fragment, useState } from "react";
 import './Login.css';
 import Text from "../../util/text/Text";
+import { useHistory } from "react-router-dom";
 
 const Login=()=>{ 
-    
+
     const [usuario, setUsuario] = useState('');
     const [contrasena, setContrasena] = useState('');
+    const history = useHistory();
 
     const handleUsuarioChange = (text)=>{
         setUsuario(text);
@@ -14,6 +16,10 @@ const Login=()=>{
      const handleContrasenaChange = (text)=>{
         setContrasena(text);
      };
+
+     function routerHome() {
+        history.push("../home");
+      };
 
     return (
         <Fragment>  
@@ -49,7 +55,7 @@ const Login=()=>{
              
                                 </div>
                             </form>
-                            <button id="btn-ok" type="button" class="btn btn-primary w-100" >Inicie Sesión</button>
+                            <button onClick={routerHome}  id="btn-ok" type="button" class="btn btn-primary w-100" >Inicie Sesión</button>
                             <a className="mt-4 d-flex justify-content-end">Recuperar Contraseña</a>
                         </div>
                     </div>

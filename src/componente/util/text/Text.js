@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import './Text.css';
 import $ from 'jquery';
-import { useState } from 'react';
 
 const Text=({typeInput,label,id,icon,text,setText})=>{
 
