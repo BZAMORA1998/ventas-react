@@ -5,10 +5,9 @@ import {
   useRouteMatch,
   Link
 } from "react-router-dom";
-import Citas from "./Citas/Citas";
-import Clientes from "./Clientes/Clientes";
 import {Navbar,Container,Nav} from 'react-bootstrap'
 import './Home.css';
+import Seguridad from "./Seguridad/Seguridad";
 
 export default function App() {
 
@@ -22,20 +21,20 @@ export default function App() {
               <Link  className="text-white m-2" to={`${match.path}`}>Pets&Cats</Link>
               <Nav className="me-auto">
                 <Link  className="text-white m-2" activeClassName="selected" to={`${match.path}`}>Home</Link>
-                <Link className="text-white m-2" activeClassName="selected" to={`${match.path}/citas`}>Citas</Link>
+                <Link className="text-white m-2" activeClassName="selected" to={`${match.path}/seguridad`}>Seguridad</Link>
                 <Link className="text-white m-2" activeClassName="selected" to={`${match.path}/clientes`}>Clientes</Link>
               </Nav>
               </Container>
           </Navbar>
           <Switch>
-              <Router exact path={`${match.path}/citas`}>
-                <Citas />
+              <Router exact path={`${match.path}/seguridad`}>
+                <Seguridad />
               </Router>
               <Router exact path={`${match.path}/clientes`}>
-                <Clientes/>
+                <h1>Hola soy clientes</h1>
               </Router>
               <Router exact path={`${match.path}`}>
-                <Citas />
+                <h1>Hola soy cliete</h1>
               </Router>
            </Switch>
 

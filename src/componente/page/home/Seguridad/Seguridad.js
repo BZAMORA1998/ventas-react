@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-const Citas=()=>{ 
+const Seguridad=()=>{ 
 
     function FancyBorder(props) {
       return (
@@ -24,4 +24,4 @@ const Citas=()=>{
     );
 }
 
-export default Citas;
+export default Seguridad;
