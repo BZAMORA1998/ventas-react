@@ -12,14 +12,12 @@ const Seguridad=()=>{
 
     return (
         <Fragment> 
-            <FancyBorder color="blue">
-              <h1 className="Dialog-title">
-                Welcome
-              </h1>
-              <p className="Dialog-message">
-                Thank you for visiting our Citas!
-              </p>
-            </FancyBorder>
+            <div className="App">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </div>
         </Fragment>
     );
 }

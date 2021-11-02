@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
-import Login from "./componente/page/Login/Login";
-import Home from "./componente/page/home/Home";
+import Login from "./page/login/Login";
+import Home from "./page/home/Home";
 
 function App() {
 

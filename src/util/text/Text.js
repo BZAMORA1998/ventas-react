@@ -3,7 +3,6 @@ import './Text.css';
 import $ from 'jquery';
 
 const Text=({typeInput,label,id,icon,text,setText})=>{
-
     const onFocusEvent=()=>{
         $(`#textoF-${id}`).css("margin-top",-20);
         $(`#textoI-${id}`).css("border-bottom","1px solid blue");
