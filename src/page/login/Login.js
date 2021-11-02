@@ -17,7 +17,7 @@ const Login=()=>{
      */
      function routerHome() {
          console.log("Importar: ",b.refreshToken());
-        // history.push("../home");
+         history.push("../home");
       };
 
     return (
