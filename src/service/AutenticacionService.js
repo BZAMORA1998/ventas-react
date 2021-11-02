@@ -18,6 +18,18 @@ class AutenticacionService extends Component {
         });
         return new ApiService().ApiCall("PUT","/autenticacion/refreshToken",header,Body,false);
     }
+
+    /**
+     * @description Autenticacion
+     * @author Bryan Zamora
+     * @returns 
+     */
+     postAutenticacion(user,password) {
+
+        let header={"Authorization": "Basic "+Buffer.from(user+":"+password).toString('base64')};
+
+        return new ApiService().ApiCall("POST","/autenticacion/login",header,null,false);
+    }
 }
 
 export default AutenticacionService;

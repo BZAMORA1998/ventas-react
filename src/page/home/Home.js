@@ -1,6 +1,7 @@
 import React from "react";
 import {
   BrowserRouter as Router,
+  Route,
   Switch,
   useRouteMatch,
   Link
@@ -26,16 +27,11 @@ export default function App() {
               </Nav>
               </Container>
           </Navbar>
+          
           <Switch>
-              <Router exact path={`${match.path}/seguridad`}>
-                <Seguridad />
-              </Router>
-              <Router exact path={`${match.path}/clientes`}>
-                <h1>Hola soy clientes</h1>
-              </Router>
-              <Router exact path={`${match.path}`}>
-                <h1>Hola soy cliete</h1>
-              </Router>
+              <Route exact path={`${match.path}`} component={Seguridad}></Route>
+              <Route exact path={`${match.path}/seguridad`} component={Seguridad}></Route>
+              <Route exact path={`${match.path}/clientes`} component={Seguridad}></Route>
            </Switch>
 
       </Router>

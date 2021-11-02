@@ -17,24 +17,27 @@ class ApiService extends Component {
     ApiCall(METHOD,API,HEADER,BODY,SECURITY) {
 
         if(HEADER!=null){
-            HEADER={HEADER,'Content-Type':'application/json'};
+            HEADER=Object.assign(HEADER,
+                {'Content-Type':'application/json',
+            'canal':'49a5f60a-9f56-4feb-bcf1-5377c6152ef8'});
         }else{
             HEADER={
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'canal':'49a5f60a-9f56-4feb-bcf1-5377c6152ef8'
             };
         }
 
         if(SECURITY){
 
         }
-       
-        
+
         switch(METHOD) {
             case "GET":
+                console.log("Metodo GET");
                 return fetch(process.env.REACT_APP_BASE_URL+API,
                     {
-                        HEADERS: HEADER,
-                        METHOD:"GET"
+                        headers: HEADER,
+                        method: "GET"
                     }
                 )
                 .then((response) => {
@@ -44,10 +47,11 @@ class ApiService extends Component {
                 });
 
             case "POST":
+                console.log("Metodo POST");
                 return fetch(process.env.REACT_APP_BASE_URL+API,
                     {
-                        HEADERS: HEADER,
-                        METHOD: "POST",
+                        headers: HEADER,
+                        method: "POST",
                         body:BODY
                     }
                 )
@@ -58,10 +62,11 @@ class ApiService extends Component {
                 });
 
             case "PUT":
+                console.log("Metodo PUT");
                 return fetch(process.env.REACT_APP_BASE_URL+API,
                     {
-                        HEADERS: HEADER,
-                        METHOD: "PUT",
+                        headers: HEADER,
+                        method: "PUT",
                         body:BODY
                     }
                 )
@@ -72,10 +77,11 @@ class ApiService extends Component {
                 });
      
             case "DELETE":
+                console.log("Metodo DELETE");
                 return fetch(process.env.REACT_APP_BASE_URL+API,
                     {
-                        HEADERS: HEADER,
-                        METHOD: "DELETE",
+                        headers: HEADER,
+                        method: "DELETE",
                         body:BODY
                     }
                 )

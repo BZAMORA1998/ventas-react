@@ -3,6 +3,8 @@ import './Login.css';
 import Text from "../../util/text/Text";
 import { useHistory } from "react-router-dom";
 import AutenticacionService from "../../service/AutenticacionService";
+import Sweetalert2 from "../../util/sweetalert2/Sweetalert2";
+import Swal from 'sweetalert2';
 
 const Login=()=>{ 
 
@@ -10,15 +12,29 @@ const Login=()=>{
     const [usuario, setUsuario] = useState('');
     const [contrasena, setContrasena] = useState('');
     const history = useHistory();
-    const b = new AutenticacionService();
+    const autenticacionService = new AutenticacionService();
+    let sweetalert2 =new Sweetalert2();
+
 
     /**
-     * Redirige al home
+     * @description Auntentica el usuario
+     * @author Bryan Zamora
      */
-     function routerHome() {
-         console.log("Importar: ",b.refreshToken());
-         history.push("../home");
-      };
+    function postLogin(){
+        sweetalert2.loading(true);
+        autenticacionService.postAutenticacion(usuario,contrasena)
+        .then(Response => {
+            if(Response['code']==200){
+                sweetalert2.loading(false);
+                history.push("../home");
+            }else if(Response['code']==400){
+                sweetalert2.loading(false);
+                sweetalert2.showModalError(Response['message']);
+            }else{
+                console.log(Response['message']);
+            }
+        });
+    }
 
     return (
         <Fragment>  
@@ -54,7 +70,7 @@ const Login=()=>{
              
                                 </div>
                             </form>
-                            <button onClick={routerHome}  id="btn-ok" type="button" className="btn btn-primary w-100" >Inicie Sesión</button>
+                            <button onClick={postLogin}  id="btn-ok" type="button" className="btn btn-primary w-100" >Inicie Sesión</button>
                             <a className="mt-4 d-flex justify-content-end">Recuperar Contraseña</a>
                         </div>
                     </div>
