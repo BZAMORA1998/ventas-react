@@ -19,11 +19,11 @@ class ApiService extends Component {
         if(HEADER!=null){
             HEADER=Object.assign(HEADER,
                 {'Content-Type':'application/json',
-            'canal':'49a5f60a-9f56-4feb-bcf1-5377c6152ef8'});
+            'canal':process.env.REACT_APP_CANAL});
         }else{
             HEADER={
                 'Content-Type': 'application/json',
-                'canal':'49a5f60a-9f56-4feb-bcf1-5377c6152ef8'
+                'canal':process.env.REACT_APP_CANAL
             };
         }
 
