@@ -86,7 +86,6 @@ const Login=()=>{
                                 </div>
                             </form>
                             <button onClick={postLogin}  id="btn-ok" type="button" className="btn btn-primary w-100" >Inicie Sesión</button>
-                            <a className="mt-4 d-flex justify-content-end">Recuperar Contraseña</a>
                         </div>
                     </div>
                 </div>
