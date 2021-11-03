@@ -4,13 +4,13 @@ import Text from "../../util/text/Text";
 import { useHistory } from "react-router-dom";
 import AutenticacionService from "../../service/AutenticacionService";
 import Sweetalert2 from "../../util/sweetalert2/Sweetalert2";
-import Swal from 'sweetalert2';
 
 const Login=()=>{ 
 
     //Variasbles a utilizar
     const [usuario, setUsuario] = useState('');
     const [contrasena, setContrasena] = useState('');
+    const [typeInput, setTypeInput] = useState('password');
     const history = useHistory();
     const autenticacionService = new AutenticacionService();
     let sweetalert2 =new Sweetalert2();
@@ -34,6 +34,21 @@ const Login=()=>{
                 console.log(Response['message']);
             }
         });
+    }
+
+    /**
+     * @description Oculta el ojito
+     * @author Bryan Zamora
+     */
+    function iconPass(){
+        console.log(typeInput);
+        if(typeInput=='password'){
+            setTypeInput('text');
+            document.getElementById("icon").className = "eye fa fa-eye-slash";
+        }else{
+            setTypeInput('password');
+            document.getElementById("icon").className = "eye fa fa-eye";
+        }
     }
 
     return (
@@ -62,11 +77,11 @@ const Login=()=>{
                                     icon="fas fa-key" 
                                     label="Contraseña"
                                     id="pass"
-                                    typeInput="password"
+                                    typeInput={typeInput}
                                     text={contrasena}
                                     setText={setContrasena}
                                     /> 
-                                    <label type="button" className="button"><i className="eye fa fa-eye showPass" aria-hidden="true"></i></label>
+                                    <label type="button" className="button"><i id='icon' onClick={iconPass} className="eye fa fa-eye" aria-hidden="true"></i></label>
              
                                 </div>
                             </form>

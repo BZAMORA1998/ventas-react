@@ -9,7 +9,7 @@ class AutenticacionService extends Component {
      * @author Bryan Zamora
      * @returns 
      */
-    refreshToken() {
+    putRefreshToken() {
 
         let header={"token":"token"};
        
