@@ -15,7 +15,6 @@ const Login=()=>{
     const autenticacionService = new AutenticacionService();
     let sweetalert2 =new Sweetalert2();
 
-
     /**
      * @description Auntentica el usuario
      * @author Bryan Zamora
@@ -26,6 +25,7 @@ const Login=()=>{
         .then(Response => {
             if(Response['code']==200){
                 sweetalert2.loading(false);
+                localStorage.setItem("autenticacion", JSON.stringify(true));
                 history.push("../home");
             }else if(Response['code']==400){
                 sweetalert2.loading(false);
